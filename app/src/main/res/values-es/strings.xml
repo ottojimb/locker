@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="service_label">Pantalla Locker</string>
+    <string name="service_description">Muestra la última pantalla con tu imagen encima mientras el dispositivo está en reposo. Los pantallazos solo se guardan en memoria.</string>
+    <string name="tile_label">Bloquear con imagen</string>
+    <string name="pick_overlay">Elegir PNG</string>
+    <string name="clear_overlay">Quitar imagen</string>
+    <string name="open_accessibility">Ajustes de accesibilidad</string>
+    <string name="enabled">Activado</string>
+    <string name="status_service_on">Servicio: activo</string>
+    <string name="status_service_off">Servicio: apagado (actívalo en Accesibilidad)</string>
+    <string name="status_overlay_on">Imagen: %1$dx%2$d</string>
+    <string name="status_overlay_off">Imagen: ninguna (solo se muestra el pantallazo)</string>
+    <string name="pick_folder">Elegir carpeta (al azar en cada bloqueo)</string>
+    <string name="status_folder">Carpeta: %1$s (%2$d imágenes, al azar)</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Locker</string>
+    <string name="service_label">Locker screen</string>
+    <string name="service_description">Shows the last screen with your overlay image while the device sleeps. Screenshots stay in memory only.</string>
+    <string name="tile_label">Lock with image</string>
+    <string name="pick_overlay">Choose overlay PNG</string>
+    <string name="clear_overlay">Remove overlay</string>
+    <string name="open_accessibility">Accessibility settings</string>
+    <string name="enabled">Enabled</string>
+    <string name="status_service_on">Service: running</string>
+    <string name="status_service_off">Service: off (enable it in Accessibility settings)</string>
+    <string name="status_overlay_on">Overlay: %1$dx%2$d</string>
+    <string name="status_overlay_off">Overlay: none (only the screenshot is shown)</string>
+    <string name="pick_folder">Choose folder (random each lock)</string>
+    <string name="status_folder">Folder: %1$s (%2$d images, random)</string>
+</resources>
