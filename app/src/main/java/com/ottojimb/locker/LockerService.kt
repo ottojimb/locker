@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.pm.ApplicationInfo
 import android.graphics.Bitmap
 import android.graphics.PixelFormat
 import android.os.Handler
@@ -18,6 +19,7 @@ import android.view.Gravity
 import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
 import android.widget.ImageView
+import java.io.File
 import java.util.concurrent.Executors
 
 /**
@@ -211,6 +213,20 @@ class LockerService : AccessibilityService() {
         windowManager.addView(view, params)
         overlayView = view
         Log.i(TAG, "overlay shown ($reason) ${sinceScreenOff()}")
+        dumpForDebug(bitmap)
+    }
+
+    /** Debug builds: save what the sleep screen shows, for `adb pull`. */
+    private fun dumpForDebug(bitmap: Bitmap) {
+        if (applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE == 0) return
+        val dir = getExternalFilesDir(null) ?: return
+        loader.execute {
+            runCatching {
+                File(dir, DEBUG_DUMP_NAME).outputStream().use {
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, it)
+                }
+            }.onFailure { Log.w(TAG, "debug dump failed", it) }
+        }
     }
 
     private fun hideOverlay(reason: String) {
@@ -234,6 +250,7 @@ class LockerService : AccessibilityService() {
         private const val FRESH_TIMEOUT_MS = 250L
         private const val SHADE_CLOSE_MS = 700L
         private const val LOCK_DELAY_MS = 300L
+        private const val DEBUG_DUMP_NAME = "last_sleep.png"
 
         @Volatile
         var instance: LockerService? = null
