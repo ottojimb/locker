@@ -2,6 +2,8 @@
 
 **A custom sleep screen for the Bigme B7: your last page, with your own image on top.**
 
+![Locker sleep screens on a Bigme B7: a book page and a Reddit feed, each with a custom image on top](docs/demo.png)
+
 I wanted the sleep screen on my Bigme B7 to show what I was reading, with a little image of my choice on top, instead of the default calendar. The stock options are a clock, a calendar, a picture or "transparent", and none of them do that. So I built a small app that does.
 
 When you press the power button, Locker takes a screenshot of whatever is on screen, puts your PNG on top, and leaves that on the e-ink panel while the device sleeps. You can use a single image or a folder, and with a folder it picks a random image every time you lock.
@@ -13,7 +15,7 @@ When you press the power button, Locker takes a screenshot of whatever is on scr
 - Shows the page you were on (KOReader, the Bigme reader, any app) as the sleep screen
 - Puts your PNG on top. Transparent parts let the page show through
 - Folder mode: a random image each time you lock, never the same one twice in a row
-- Screenshots stay in memory only and are never saved to disk
+- Screenshots stay in memory only and are never saved to disk (debug builds save the last sleep screen to `Android/data/com.ottojimb.locker/files/last_sleep.png` for troubleshooting)
 - Tiny, with no dependencies, ads, tracking or internet permission
 
 ## Install
