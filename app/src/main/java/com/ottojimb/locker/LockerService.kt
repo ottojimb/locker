@@ -7,12 +7,14 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.ApplicationInfo
+import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.PixelFormat
 import android.os.Handler
 import android.os.Looper
 import android.os.PowerManager
 import android.os.SystemClock
+import android.provider.Settings
 import android.util.Log
 import android.view.Display
 import android.view.Gravity
@@ -167,7 +169,7 @@ class LockerService : AccessibilityService() {
                 // A non-forced capture that lands after the screen went off may contain the standby screen.
                 val stale = !force && (overlayView != null || !power.isInteractive)
                 if (shot != null && !stale && overlayView == null) {
-                    composite = Compositor.compose(shot, overlay)
+                    composite = Compositor.compose(shot, overlay, invert = invertMode())
                 } else {
                     shot?.recycle()
                 }
@@ -238,6 +240,23 @@ class LockerService : AccessibilityService() {
         if (reason != "destroy" && OverlayStore.folder(this) != null) reloadOverlay()
     }
 
+    /**
+     * Inverts the overlay when the system dark theme or color inversion (Bigme's dark mode) is on,
+     * if the setting allows it.
+     */
+    private fun invertMode(): Compositor.Invert {
+        if (!OverlayStore.invertInDarkMode(this)) return Compositor.Invert.NONE
+        val colorInversion = runCatching {
+            Settings.Secure.getInt(contentResolver, DISPLAY_INVERSION_KEY, 0) == 1
+        }.getOrDefault(false)
+        if (colorInversion) {
+            return if (OverlayStore.keepOriginalColors(this)) Compositor.Invert.MATCH_SYSTEM else Compositor.Invert.NEGATE
+        }
+        val nightTheme =
+            resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
+        return if (nightTheme) Compositor.Invert.NEGATE else Compositor.Invert.NONE
+    }
+
     private fun sinceScreenOff() =
         if (screenOffAt == 0L) "" else "(+${SystemClock.uptimeMillis() - screenOffAt}ms after screen off)"
 
@@ -251,6 +270,7 @@ class LockerService : AccessibilityService() {
         private const val SHADE_CLOSE_MS = 700L
         private const val LOCK_DELAY_MS = 300L
         private const val DEBUG_DUMP_NAME = "last_sleep.png"
+        private const val DISPLAY_INVERSION_KEY = "accessibility_display_inversion_enabled"
 
         @Volatile
         var instance: LockerService? = null

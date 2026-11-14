@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="service_label">Locker-Bildschirm</string>
+    <string name="service_description">Zeigt im Ruhezustand den letzten Bildschirm mit deinem Bild darüber. Screenshots bleiben nur im Arbeitsspeicher.</string>
+    <string name="tile_label">Mit Bild sperren</string>
+    <string name="tagline">Deine letzte Seite und dein Bild als Ruhebildschirm</string>
+    <string name="section_sleep">Ruhebildschirm</string>
+    <string name="section_image">Bild</string>
+    <string name="enabled">Eigener Ruhebildschirm</string>
+    <string name="enabled_summary">Zeigt die letzte Seite mit deinem Bild, wenn das Gerät schläft</string>
+    <string name="invert_dark">Im Dunkelmodus invertieren</string>
+    <string name="invert_dark_summary">Kehrt die Bildfarben im Dunkelmodus oder bei Farbumkehr um</string>
+    <string name="status_service_on">Dienst aktiv</string>
+    <string name="status_service_off">Dienst aus</string>
+    <string name="open_accessibility">Aktivieren</string>
+    <string name="pick_overlay">Bild auswählen</string>
+    <string name="pick_folder">Ordner auswählen (bei jeder Sperre zufällig)</string>
+    <string name="clear_overlay">Bild entfernen</string>
+    <string name="preview_empty">Noch kein Bild</string>
+    <string name="status_overlay_on">Einzelbild · %1$d × %2$d px</string>
+    <string name="status_overlay_off">Kein Bild: nur die letzte Seite wird angezeigt</string>
+    <string name="status_folder">%1$s · %2$d Bilder, bei jeder Sperre zufällig</string>
+    <string name="keep_colors">Originalfarben beibehalten</string>
+    <string name="keep_colors_summary">Bei Farbumkehr (Bigme-Dunkelmodus) behält das Bild seine echten Farben, statt rötlich oder verfälscht zu wirken</string>
+</resources>

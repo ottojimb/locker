@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="service_label">Экран Locker</string>
+    <string name="service_description">Показывает последний экран с вашим изображением поверх во время сна устройства. Скриншоты хранятся только в памяти.</string>
+    <string name="tile_label">Заблокировать с изображением</string>
+    <string name="tagline">Ваша последняя страница и ваш рисунок на экране сна</string>
+    <string name="section_sleep">Экран сна</string>
+    <string name="section_image">Изображение</string>
+    <string name="enabled">Свой экран сна</string>
+    <string name="enabled_summary">Показывать последнюю страницу с изображением, когда устройство засыпает</string>
+    <string name="invert_dark">Инвертировать в тёмном режиме</string>
+    <string name="invert_dark_summary">Инвертирует цвета изображения в тёмном режиме или при инверсии цветов</string>
+    <string name="status_service_on">Служба работает</string>
+    <string name="status_service_off">Служба выключена</string>
+    <string name="open_accessibility">Включить</string>
+    <string name="pick_overlay">Выбрать изображение</string>
+    <string name="pick_folder">Выбрать папку (случайное при каждой блокировке)</string>
+    <string name="clear_overlay">Убрать изображение</string>
+    <string name="preview_empty">Изображения пока нет</string>
+    <string name="status_overlay_on">Одно изображение · %1$d × %2$d px</string>
+    <string name="status_overlay_off">Без изображения: показывается только последняя страница</string>
+    <string name="status_folder">%1$s · изображений: %2$d, случайно при каждой блокировке</string>
+    <string name="keep_colors">Сохранять исходные цвета</string>
+    <string name="keep_colors_summary">При инверсии цветов (тёмный режим Bigme) изображение сохраняет настоящие цвета, а не выглядит красноватым или искажённым</string>
+</resources>

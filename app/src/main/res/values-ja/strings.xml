@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="service_label">Locker 画面</string>
+    <string name="service_description">スリープ中、最後の画面に画像を重ねて表示します。スクリーンショットはメモリ内にのみ保持されます。</string>
+    <string name="tile_label">画像でロック</string>
+    <string name="tagline">最後のページとあなたの画像をスリープ画面に</string>
+    <string name="section_sleep">スリープ画面</string>
+    <string name="section_image">画像</string>
+    <string name="enabled">カスタムスリープ画面</string>
+    <string name="enabled_summary">スリープ時に最後のページと画像を表示します</string>
+    <string name="invert_dark">ダークモードで反転</string>
+    <string name="invert_dark_summary">ダークモードまたは色反転のときに画像の色を反転します</string>
+    <string name="status_service_on">サービス実行中</string>
+    <string name="status_service_off">サービスはオフ</string>
+    <string name="open_accessibility">有効にする</string>
+    <string name="pick_overlay">画像を選択</string>
+    <string name="pick_folder">フォルダを選択（ロックごとにランダム）</string>
+    <string name="clear_overlay">画像を削除</string>
+    <string name="preview_empty">まだ画像がありません</string>
+    <string name="status_overlay_on">画像1枚 · %1$d × %2$d px</string>
+    <string name="status_overlay_off">画像なし：最後のページのみ表示されます</string>
+    <string name="status_folder">%1$s · %2$d 枚、ロックごとにランダム</string>
+    <string name="keep_colors">元の色を保つ</string>
+    <string name="keep_colors_summary">色反転（Bigme のダークモード）のとき、画像が赤っぽくなったり色がずれたりせず、本来の色で表示されます</string>
+</resources>

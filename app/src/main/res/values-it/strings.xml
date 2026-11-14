@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="service_label">Schermata Locker</string>
+    <string name="service_description">Mostra l\'ultima schermata con la tua immagine sopra mentre il dispositivo è in standby. Gli screenshot restano solo in memoria.</string>
+    <string name="tile_label">Blocca con immagine</string>
+    <string name="tagline">La tua ultima pagina e la tua arte, come schermata di standby</string>
+    <string name="section_sleep">Schermata di standby</string>
+    <string name="section_image">Immagine</string>
+    <string name="enabled">Standby personalizzato</string>
+    <string name="enabled_summary">Mostra l\'ultima pagina con la tua immagine quando il dispositivo va in standby</string>
+    <string name="invert_dark">Inverti in modalità scura</string>
+    <string name="invert_dark_summary">Inverte i colori dell\'immagine con la modalità scura o l\'inversione dei colori</string>
+    <string name="status_service_on">Servizio attivo</string>
+    <string name="status_service_off">Servizio spento</string>
+    <string name="open_accessibility">Attiva</string>
+    <string name="pick_overlay">Scegli immagine</string>
+    <string name="pick_folder">Scegli cartella (a caso a ogni blocco)</string>
+    <string name="clear_overlay">Rimuovi immagine</string>
+    <string name="preview_empty">Ancora nessuna immagine</string>
+    <string name="status_overlay_on">Immagine singola · %1$d × %2$d px</string>
+    <string name="status_overlay_off">Nessuna immagine: viene mostrata solo l\'ultima pagina</string>
+    <string name="status_folder">%1$s · %2$d immagini, a caso a ogni blocco</string>
+    <string name="keep_colors">Mantieni i colori originali</string>
+    <string name="keep_colors_summary">Con l\'inversione dei colori (modalità scura di Bigme), l\'immagine mantiene i suoi colori reali invece di apparire rossastra o alterata</string>
+</resources>

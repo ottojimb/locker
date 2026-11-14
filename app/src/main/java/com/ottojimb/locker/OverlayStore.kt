@@ -18,6 +18,8 @@ object OverlayStore {
     private const val FILE_NAME = "overlay.png"
     private const val PREFS = "locker"
     private const val KEY_ENABLED = "enabled"
+    private const val KEY_INVERT_DARK = "invert_dark"
+    private const val KEY_KEEP_COLORS = "keep_original_colors"
     private const val KEY_FOLDER = "folder"
     private const val KEY_LAST = "last_document"
     private const val MAX_SIDE = 2400
@@ -93,6 +95,12 @@ object OverlayStore {
         return decode(context, pick)
     }
 
+    /** An image to preview in the UI: the single PNG or the first folder image. Call off the main thread. */
+    fun preview(context: Context): Bitmap? {
+        if (folder(context) == null) return load(context)
+        return folderImages(context).firstOrNull()?.let { decode(context, it) }
+    }
+
     private fun decode(context: Context, uri: Uri): Bitmap? = runCatching {
         val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
         context.contentResolver.openInputStream(uri)?.use { BitmapFactory.decodeStream(it, null, bounds) }
@@ -109,5 +117,19 @@ object OverlayStore {
 
     fun setEnabled(context: Context, enabled: Boolean) {
         prefs(context).edit().putBoolean(KEY_ENABLED, enabled).apply()
+    }
+
+    /** Whether the overlay colors are inverted while the system dark theme is on. */
+    fun invertInDarkMode(context: Context): Boolean = prefs(context).getBoolean(KEY_INVERT_DARK, true)
+
+    fun setInvertInDarkMode(context: Context, invert: Boolean) {
+        prefs(context).edit().putBoolean(KEY_INVERT_DARK, invert).apply()
+    }
+
+    /** With display color inversion on, compensate it so the image keeps its original hues. */
+    fun keepOriginalColors(context: Context): Boolean = prefs(context).getBoolean(KEY_KEEP_COLORS, true)
+
+    fun setKeepOriginalColors(context: Context, keep: Boolean) {
+        prefs(context).edit().putBoolean(KEY_KEEP_COLORS, keep).apply()
     }
 }

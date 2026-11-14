@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="service_label">Écran Locker</string>
+    <string name="service_description">Affiche le dernier écran avec votre image par-dessus pendant la mise en veille. Les captures d\'écran restent uniquement en mémoire.</string>
+    <string name="tile_label">Verrouiller avec image</string>
+    <string name="tagline">Votre dernière page et votre art, en écran de veille</string>
+    <string name="section_sleep">Écran de veille</string>
+    <string name="section_image">Image</string>
+    <string name="enabled">Écran de veille personnalisé</string>
+    <string name="enabled_summary">Affiche la dernière page avec votre image quand l\'appareil se met en veille</string>
+    <string name="invert_dark">Inverser en mode sombre</string>
+    <string name="invert_dark_summary">Inverse les couleurs de l\'image avec le mode sombre ou l\'inversion des couleurs</string>
+    <string name="status_service_on">Service actif</string>
+    <string name="status_service_off">Service arrêté</string>
+    <string name="open_accessibility">Activer</string>
+    <string name="pick_overlay">Choisir une image</string>
+    <string name="pick_folder">Choisir un dossier (au hasard à chaque verrouillage)</string>
+    <string name="clear_overlay">Retirer l\'image</string>
+    <string name="preview_empty">Pas encore d\'image</string>
+    <string name="status_overlay_on">Image unique · %1$d × %2$d px</string>
+    <string name="status_overlay_off">Aucune image : seule la dernière page est affichée</string>
+    <string name="status_folder">%1$s · %2$d images, au hasard à chaque verrouillage</string>
+    <string name="keep_colors">Garder les couleurs d\'origine</string>
+    <string name="keep_colors_summary">Avec l\'inversion des couleurs (mode sombre de Bigme), l\'image garde ses vraies couleurs au lieu de paraître rougeâtre ou décalée</string>
+</resources>

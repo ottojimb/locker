@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="service_label">Tela Locker</string>
+    <string name="service_description">Mostra a última tela com sua imagem por cima enquanto o dispositivo está em repouso. As capturas de tela ficam apenas na memória.</string>
+    <string name="tile_label">Bloquear com imagem</string>
+    <string name="tagline">Sua última página e sua arte, como tela de repouso</string>
+    <string name="section_sleep">Tela de repouso</string>
+    <string name="section_image">Imagem</string>
+    <string name="enabled">Tela de repouso personalizada</string>
+    <string name="enabled_summary">Mostra a última página com sua imagem quando o dispositivo entra em repouso</string>
+    <string name="invert_dark">Inverter no modo escuro</string>
+    <string name="invert_dark_summary">Inverte as cores da imagem com o modo escuro ou a inversão de cores</string>
+    <string name="status_service_on">Serviço ativo</string>
+    <string name="status_service_off">Serviço desligado</string>
+    <string name="open_accessibility">Ativar</string>
+    <string name="pick_overlay">Escolher imagem</string>
+    <string name="pick_folder">Escolher pasta (aleatória a cada bloqueio)</string>
+    <string name="clear_overlay">Remover imagem</string>
+    <string name="preview_empty">Nenhuma imagem ainda</string>
+    <string name="status_overlay_on">Imagem única · %1$d × %2$d px</string>
+    <string name="status_overlay_off">Sem imagem: só a última página é mostrada</string>
+    <string name="status_folder">%1$s · %2$d imagens, aleatória a cada bloqueio</string>
+    <string name="keep_colors">Manter as cores originais</string>
+    <string name="keep_colors_summary">Com a inversão de cores (modo escuro da Bigme), a imagem mantém as cores reais em vez de parecer avermelhada ou alterada</string>
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="service_label">Locker 屏幕</string>
+    <string name="service_description">设备休眠时显示最后的屏幕画面，并在上面叠加你的图片。截图只保存在内存中。</string>
+    <string name="tile_label">用图片锁屏</string>
+    <string name="tagline">把你的最后一页和你的图片作为休眠屏幕</string>
+    <string name="section_sleep">休眠屏幕</string>
+    <string name="section_image">图片</string>
+    <string name="enabled">自定义休眠屏幕</string>
+    <string name="enabled_summary">设备休眠时显示最后一页并叠加你的图片</string>
+    <string name="invert_dark">深色模式下反转</string>
+    <string name="invert_dark_summary">在深色模式或颜色反转时反转图片颜色</string>
+    <string name="status_service_on">服务运行中</string>
+    <string name="status_service_off">服务已关闭</string>
+    <string name="open_accessibility">开启</string>
+    <string name="pick_overlay">选择图片</string>
+    <string name="pick_folder">选择文件夹（每次锁屏随机）</string>
+    <string name="clear_overlay">移除图片</string>
+    <string name="preview_empty">还没有图片</string>
+    <string name="status_overlay_on">单张图片 · %1$d × %2$d 像素</string>
+    <string name="status_overlay_off">没有图片：只显示最后一页</string>
+    <string name="status_folder">%1$s · %2$d 张图片，每次锁屏随机</string>
+    <string name="keep_colors">保持原始颜色</string>
+    <string name="keep_colors_summary">开启颜色反转（Bigme 深色模式）时，图片保持真实颜色，而不会偏红或色调失真</string>
+</resources>

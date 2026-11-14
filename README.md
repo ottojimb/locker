@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/logo.png" alt="Locker logo: a padlock made of an open book, with a crescent moon" width="128"></p>
+
 # Locker
 
 **A custom sleep screen for the Bigme B7: your last page, with your own image on top.**
@@ -15,7 +17,9 @@ When you press the power button, Locker takes a screenshot of whatever is on scr
 - Shows the page you were on (KOReader, the Bigme reader, any app) as the sleep screen
 - Puts your PNG on top. Transparent parts let the page show through
 - Folder mode: a random image each time you lock, never the same one twice in a row
+- Inverts the colors of your image when the system dark theme or color inversion (Bigme's dark mode) is on (can be turned off in the app). With color inversion, Locker compensates it so your image keeps its real colors instead of looking reddish (also optional)
 - Screenshots stay in memory only and are never saved to disk (debug builds save the last sleep screen to `Android/data/com.ottojimb.locker/files/last_sleep.png` for troubleshooting)
+- Available in English, Spanish, French, German, Italian, Portuguese, Russian, Simplified Chinese and Japanese (Android 13+ lets you pick the app language in system settings)
 - Tiny, with no dependencies, ads, tracking or internet permission
 
 ## Install
@@ -42,18 +46,18 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 
 ## Setup (do this once)
 
-1. **Turn on the service:** Settings → Accessibility → **Locker screen** → On.
+1. **Turn on the service:** open Locker and tap **Enable** (or go to Settings → Accessibility → **Locker screen** → On).
    Android will warn you that the app can see your screen. That is how it takes the screenshot, and the screenshot never leaves the device.
 2. **Set Bigme's sleep style to "Transparent":** open Bigme's sleep screen settings and pick **Transparent**.
    This step matters. The clock, calendar and picture styles draw an opaque window above every app, which covers Locker's image.
 3. **Choose your image:** open the **Locker** app and:
-   - tap **Choose overlay PNG** for a single image, or
+   - tap **Choose image** for a single image, or
    - tap **Choose folder (random each lock)** and pick a folder with PNG, JPG or WebP files.
 4. **Lock the device** with the power button. Enjoy!
 
 ## Making a good overlay
 
-- The screen is **1264 × 1680 px** (portrait). Use that size. Other sizes are stretched to fit.
+- The screen is **1264 × 1680 px** (portrait). Use that size. Other sizes are stretched to fit. When you lock in landscape, a portrait image keeps its proportions and is centered.
 - Use a **PNG with transparency**. Transparent areas show your page, and opaque areas cover it.
 - Semi-transparent white boxes look great on e-ink for text like "Do not disturb, I'm reading".
 - Bigme's Transparent style draws a small sleeping-moon icon (and notification icons) on top. Locker can't remove those.
