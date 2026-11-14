@@ -4,7 +4,7 @@
 
 **A custom sleep screen for the Bigme B7: your last page, with your own image on top.**
 
-![Locker sleep screens on a Bigme B7: a book page and a Reddit feed, each with a custom image on top](docs/demo.png)
+![Locker sleep screens on a Bigme B7: a book page with a custom image on top, and the home screen in Bigme's dark mode with an image that keeps its original colors](docs/demo.png)
 
 I wanted the sleep screen on my Bigme B7 to show what I was reading, with a little image of my choice on top, instead of the default calendar. The stock options are a clock, a calendar, a picture or "transparent", and none of them do that. So I built a small app that does.
 
