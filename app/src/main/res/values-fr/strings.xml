@@ -9,7 +9,7 @@
     <string name="enabled">Écran de veille personnalisé</string>
     <string name="enabled_summary">Affiche la dernière page avec votre image quand l\'appareil se met en veille</string>
     <string name="invert_dark">Inverser en mode sombre</string>
-    <string name="invert_dark_summary">Inverse les couleurs de l\'image avec le mode sombre ou l\'inversion des couleurs</string>
+    <string name="invert_dark_summary">Inverse les couleurs de l\'image avec l\'inversion des couleurs (mode sombre de Bigme)</string>
     <string name="status_service_on">Service actif</string>
     <string name="status_service_off">Service arrêté</string>
     <string name="open_accessibility">Activer</string>
@@ -22,4 +22,6 @@
     <string name="status_folder">%1$s · %2$d images, au hasard à chaque verrouillage</string>
     <string name="keep_colors">Garder les couleurs d\'origine</string>
     <string name="keep_colors_summary">Avec l\'inversion des couleurs (mode sombre de Bigme), l\'image garde ses vraies couleurs au lieu de paraître rougeâtre ou décalée</string>
+    <string name="restricted_help">Impossible de l\'activer dans Accessibilité ? Ouvrez Infos sur l\'appli, touchez ⋮ et choisissez Autoriser les paramètres restreints, puis réessayez.</string>
+    <string name="open_app_info">Ouvrir Infos sur l\'appli</string>
 </resources>

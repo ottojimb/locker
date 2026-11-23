@@ -9,7 +9,7 @@
     <string name="enabled">Tela de repouso personalizada</string>
     <string name="enabled_summary">Mostra a última página com sua imagem quando o dispositivo entra em repouso</string>
     <string name="invert_dark">Inverter no modo escuro</string>
-    <string name="invert_dark_summary">Inverte as cores da imagem com o modo escuro ou a inversão de cores</string>
+    <string name="invert_dark_summary">Inverte as cores da imagem com a inversão de cores (modo escuro da Bigme)</string>
     <string name="status_service_on">Serviço ativo</string>
     <string name="status_service_off">Serviço desligado</string>
     <string name="open_accessibility">Ativar</string>
@@ -22,4 +22,6 @@
     <string name="status_folder">%1$s · %2$d imagens, aleatória a cada bloqueio</string>
     <string name="keep_colors">Manter as cores originais</string>
     <string name="keep_colors_summary">Com a inversão de cores (modo escuro da Bigme), a imagem mantém as cores reais em vez de parecer avermelhada ou alterada</string>
+    <string name="restricted_help">Não consegue ativar em Acessibilidade? Abra Informações do app, toque em ⋮ e escolha Permitir configurações restritas. Depois tente novamente.</string>
+    <string name="open_app_info">Abrir informações do app</string>
 </resources>

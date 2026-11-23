@@ -119,7 +119,7 @@ object OverlayStore {
         prefs(context).edit().putBoolean(KEY_ENABLED, enabled).apply()
     }
 
-    /** Whether the overlay colors are inverted while the system dark theme is on. */
+    /** Whether the overlay colors are inverted while display color inversion is on. */
     fun invertInDarkMode(context: Context): Boolean = prefs(context).getBoolean(KEY_INVERT_DARK, true)
 
     fun setInvertInDarkMode(context: Context, invert: Boolean) {

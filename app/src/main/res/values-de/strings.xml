@@ -9,7 +9,7 @@
     <string name="enabled">Eigener Ruhebildschirm</string>
     <string name="enabled_summary">Zeigt die letzte Seite mit deinem Bild, wenn das Gerät schläft</string>
     <string name="invert_dark">Im Dunkelmodus invertieren</string>
-    <string name="invert_dark_summary">Kehrt die Bildfarben im Dunkelmodus oder bei Farbumkehr um</string>
+    <string name="invert_dark_summary">Kehrt die Bildfarben bei Farbumkehr um (Bigmes Dunkelmodus)</string>
     <string name="status_service_on">Dienst aktiv</string>
     <string name="status_service_off">Dienst aus</string>
     <string name="open_accessibility">Aktivieren</string>
@@ -22,4 +22,6 @@
     <string name="status_folder">%1$s · %2$d Bilder, bei jeder Sperre zufällig</string>
     <string name="keep_colors">Originalfarben beibehalten</string>
     <string name="keep_colors_summary">Bei Farbumkehr (Bigme-Dunkelmodus) behält das Bild seine echten Farben, statt rötlich oder verfälscht zu wirken</string>
+    <string name="restricted_help">Lässt es sich unter Bedienungshilfen nicht aktivieren? Öffne die App-Info, tippe auf ⋮ und wähle Eingeschränkte Einstellungen zulassen. Versuche es dann erneut.</string>
+    <string name="open_app_info">App-Info öffnen</string>
 </resources>

@@ -9,7 +9,7 @@
     <string name="enabled">Свой экран сна</string>
     <string name="enabled_summary">Показывать последнюю страницу с изображением, когда устройство засыпает</string>
     <string name="invert_dark">Инвертировать в тёмном режиме</string>
-    <string name="invert_dark_summary">Инвертирует цвета изображения в тёмном режиме или при инверсии цветов</string>
+    <string name="invert_dark_summary">Инвертирует цвета изображения при инверсии цветов (тёмный режим Bigme)</string>
     <string name="status_service_on">Служба работает</string>
     <string name="status_service_off">Служба выключена</string>
     <string name="open_accessibility">Включить</string>
@@ -22,4 +22,6 @@
     <string name="status_folder">%1$s · изображений: %2$d, случайно при каждой блокировке</string>
     <string name="keep_colors">Сохранять исходные цвета</string>
     <string name="keep_colors_summary">При инверсии цветов (тёмный режим Bigme) изображение сохраняет настоящие цвета, а не выглядит красноватым или искажённым</string>
+    <string name="restricted_help">Не включается в разделе «Спец. возможности»? Откройте сведения о приложении, нажмите ⋮ и выберите «Разрешить доступ к настройкам», затем повторите попытку.</string>
+    <string name="open_app_info">Сведения о приложении</string>
 </resources>

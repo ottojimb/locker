@@ -9,7 +9,7 @@
     <string name="enabled">自定义休眠屏幕</string>
     <string name="enabled_summary">设备休眠时显示最后一页并叠加你的图片</string>
     <string name="invert_dark">深色模式下反转</string>
-    <string name="invert_dark_summary">在深色模式或颜色反转时反转图片颜色</string>
+    <string name="invert_dark_summary">在颜色反转(Bigme 深色模式)时反转图片颜色</string>
     <string name="status_service_on">服务运行中</string>
     <string name="status_service_off">服务已关闭</string>
     <string name="open_accessibility">开启</string>
@@ -22,4 +22,6 @@
     <string name="status_folder">%1$s · %2$d 张图片，每次锁屏随机</string>
     <string name="keep_colors">保持原始颜色</string>
     <string name="keep_colors_summary">开启颜色反转（Bigme 深色模式）时，图片保持真实颜色，而不会偏红或色调失真</string>
+    <string name="restricted_help">无法在无障碍中开启?请打开应用信息,点按 ⋮ 并选择“允许受限制的设置”,然后重试。</string>
+    <string name="open_app_info">打开应用信息</string>
 </resources>

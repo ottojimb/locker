@@ -9,7 +9,7 @@
     <string name="enabled">カスタムスリープ画面</string>
     <string name="enabled_summary">スリープ時に最後のページと画像を表示します</string>
     <string name="invert_dark">ダークモードで反転</string>
-    <string name="invert_dark_summary">ダークモードまたは色反転のときに画像の色を反転します</string>
+    <string name="invert_dark_summary">色反転(Bigme のダークモード)のときに画像の色を反転します</string>
     <string name="status_service_on">サービス実行中</string>
     <string name="status_service_off">サービスはオフ</string>
     <string name="open_accessibility">有効にする</string>
@@ -22,4 +22,6 @@
     <string name="status_folder">%1$s · %2$d 枚、ロックごとにランダム</string>
     <string name="keep_colors">元の色を保つ</string>
     <string name="keep_colors_summary">色反転（Bigme のダークモード）のとき、画像が赤っぽくなったり色がずれたりせず、本来の色で表示されます</string>
+    <string name="restricted_help">ユーザー補助で有効にできない場合は、アプリ情報を開き、⋮ をタップして「制限付き設定を許可」を選んでから、もう一度お試しください。</string>
+    <string name="open_app_info">アプリ情報を開く</string>
 </resources>

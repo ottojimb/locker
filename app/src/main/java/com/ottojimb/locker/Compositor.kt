@@ -15,7 +15,7 @@ object Compositor {
     enum class Invert {
         NONE,
 
-        /** Plain RGB negation (for a dark theme without a display color transform). */
+        /** Plain RGB negation; under display color inversion the hues end up shifted. */
         NEGATE,
 
         /**
@@ -63,25 +63,33 @@ object Compositor {
                 Invert.NEGATE -> negatePaint
                 Invert.MATCH_SYSTEM -> matchSystemPaint
             }
-            Canvas(shot).drawBitmap(overlay, null, target(shot, overlay), p)
+            val (src, dst) = placement(shot, overlay)
+            Canvas(shot).drawBitmap(overlay, src, dst, p)
         }
         return shot
     }
 
     /**
-     * Same orientation: stretch over the whole screen (small size differences are not worth bars).
-     * Different orientation (e.g. a portrait image while locking in landscape): keep the aspect
-     * ratio and center it, so the page shows on the sides instead of the image being distorted.
+     * Returns the overlay area to draw and where to draw it, never distorting the image.
+     * Same orientation: center-crop to fill the screen. Different orientation (e.g. a portrait
+     * image while locking in landscape): fit and center it, so the page shows on the sides.
      */
-    private fun target(shot: Bitmap, overlay: Bitmap): Rect {
+    private fun placement(shot: Bitmap, overlay: Bitmap): Pair<Rect, Rect> {
         val shotLandscape = shot.width > shot.height
         val overlayLandscape = overlay.width > overlay.height
-        if (shotLandscape == overlayLandscape) return Rect(0, 0, shot.width, shot.height)
+        if (shotLandscape == overlayLandscape) {
+            val scale = maxOf(shot.width.toFloat() / overlay.width, shot.height.toFloat() / overlay.height)
+            val w = minOf((shot.width / scale).toInt(), overlay.width)
+            val h = minOf((shot.height / scale).toInt(), overlay.height)
+            val left = (overlay.width - w) / 2
+            val top = (overlay.height - h) / 2
+            return Rect(left, top, left + w, top + h) to Rect(0, 0, shot.width, shot.height)
+        }
         val scale = minOf(shot.width.toFloat() / overlay.width, shot.height.toFloat() / overlay.height)
         val w = (overlay.width * scale).toInt()
         val h = (overlay.height * scale).toInt()
         val left = (shot.width - w) / 2
         val top = (shot.height - h) / 2
-        return Rect(left, top, left + w, top + h)
+        return Rect(0, 0, overlay.width, overlay.height) to Rect(left, top, left + w, top + h)
     }
 }

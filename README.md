@@ -17,7 +17,7 @@ When you press the power button, Locker takes a screenshot of whatever is on scr
 - Shows the page you were on (KOReader, the Bigme reader, any app) as the sleep screen
 - Puts your PNG on top. Transparent parts let the page show through
 - Folder mode: a random image each time you lock, never the same one twice in a row
-- Inverts the colors of your image when the system dark theme or color inversion (Bigme's dark mode) is on (can be turned off in the app). With color inversion, Locker compensates it so your image keeps its real colors instead of looking reddish (also optional)
+- Compensates color inversion (Bigme's dark mode) so your image keeps its real colors instead of looking negative or reddish (can be turned off in the app). With Android's regular dark theme, your image is left as is
 - Screenshots stay in memory only and are never saved to disk (debug builds save the last sleep screen to `Android/data/com.ottojimb.locker/files/last_sleep.png` for troubleshooting)
 - Available in English, Spanish, French, German, Italian, Portuguese, Russian, Simplified Chinese and Japanese (Android 13+ lets you pick the app language in system settings)
 - Tiny, with no dependencies, ads, tracking or internet permission
@@ -48,6 +48,7 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 
 1. **Turn on the service:** open Locker and tap **Enable** (or go to Settings → Accessibility → **Locker screen** → On).
    Android will warn you that the app can see your screen. That is how it takes the screenshot, and the screenshot never leaves the device.
+   If Android blocks it as a restricted setting, go to App info → **⋮** → **Allow restricted settings**, then try again.
 2. **Set Bigme's sleep style to "Transparent":** open Bigme's sleep screen settings and pick **Transparent**.
    This step matters. The clock, calendar and picture styles draw an opaque window above every app, which covers Locker's image.
 3. **Choose your image:** open the **Locker** app and:
@@ -57,7 +58,7 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 
 ## Making a good overlay
 
-- The screen is **1264 × 1680 px** (portrait). Use that size. Other sizes are stretched to fit. When you lock in landscape, a portrait image keeps its proportions and is centered.
+- The screen is **1264 × 1680 px** (portrait). Use that size. Other proportions are center-cropped to fill the screen, never stretched. When you lock in landscape, a portrait image is shown whole and centered.
 - Use a **PNG with transparency**. Transparent areas show your page, and opaque areas cover it.
 - Semi-transparent white boxes look great on e-ink for text like "Do not disturb, I'm reading".
 - Bigme's Transparent style draws a small sleeping-moon icon (and notification icons) on top. Locker can't remove those.

@@ -7,7 +7,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.ApplicationInfo
-import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.PixelFormat
 import android.os.Handler
@@ -41,8 +40,10 @@ class LockerService : AccessibilityService() {
     private var overlayView: ImageView? = null
     private var captureInFlight = false
     private var screenOffAt = 0L
+    private var sleepPending = false
 
     private val captureRunnable = Runnable { capture(force = false, onDone = null) }
+    private val sleepFallback = Runnable { showForSleep("fallback timeout") }
     private val periodicRunnable = object : Runnable {
         override fun run() {
             if (canCaptureNow()) capture(force = false, onDone = null)
@@ -54,7 +55,7 @@ class LockerService : AccessibilityService() {
         override fun onReceive(context: Context, intent: Intent) {
             when (intent.action) {
                 Intent.ACTION_SCREEN_OFF -> onScreenOff()
-                Intent.ACTION_SCREEN_ON -> hideOverlay("screen on")
+                Intent.ACTION_SCREEN_ON -> onScreenOn()
                 Intent.ACTION_USER_PRESENT -> scheduleCapture()
             }
         }
@@ -81,7 +82,10 @@ class LockerService : AccessibilityService() {
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
         val pkg = event.packageName?.toString() ?: return
         if (pkg == STANDBY_PKG) {
-            if (event.eventType == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
+            // The same package also hosts Bigme's sleep screen settings, which must stay usable.
+            if (event.eventType == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED &&
+                event.className == STANDBY_ACTIVITY
+            ) {
                 Log.i(TAG, "standby window seen ${sinceScreenOff()}")
                 onStandbyWindow()
             }
@@ -151,8 +155,23 @@ class LockerService : AccessibilityService() {
     private fun onStandbyWindow() {
         if (!OverlayStore.isEnabled(this) || overlayView != null) return
         handler.removeCallbacks(captureRunnable)
-        handler.postDelayed({ showOverlay("fallback timeout") }, FRESH_TIMEOUT_MS)
-        capture(force = true) { showOverlay("fresh capture") }
+        sleepPending = true
+        handler.postDelayed(sleepFallback, FRESH_TIMEOUT_MS)
+        capture(force = true) { showForSleep("fresh capture") }
+    }
+
+    private fun onScreenOn() {
+        sleepPending = false
+        handler.removeCallbacks(sleepFallback)
+        hideOverlay("screen on")
+    }
+
+    /** Shows the composite unless the screen already woke up while it was being prepared. */
+    private fun showForSleep(reason: String) {
+        if (!sleepPending) return
+        sleepPending = false
+        handler.removeCallbacks(sleepFallback)
+        showOverlay(reason)
     }
 
     private fun capture(force: Boolean, onDone: (() -> Unit)?) {
@@ -241,20 +260,19 @@ class LockerService : AccessibilityService() {
     }
 
     /**
-     * Inverts the overlay when the system dark theme or color inversion (Bigme's dark mode) is on,
-     * if the setting allows it.
+     * Inverts the overlay when color inversion (Bigme's dark mode) is on, if the setting allows it.
+     * A plain dark theme does not transform the display, so the image is left untouched.
      */
     private fun invertMode(): Compositor.Invert {
         if (!OverlayStore.invertInDarkMode(this)) return Compositor.Invert.NONE
         val colorInversion = runCatching {
             Settings.Secure.getInt(contentResolver, DISPLAY_INVERSION_KEY, 0) == 1
         }.getOrDefault(false)
-        if (colorInversion) {
-            return if (OverlayStore.keepOriginalColors(this)) Compositor.Invert.MATCH_SYSTEM else Compositor.Invert.NEGATE
+        return when {
+            !colorInversion -> Compositor.Invert.NONE
+            OverlayStore.keepOriginalColors(this) -> Compositor.Invert.MATCH_SYSTEM
+            else -> Compositor.Invert.NEGATE
         }
-        val nightTheme =
-            resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
-        return if (nightTheme) Compositor.Invert.NEGATE else Compositor.Invert.NONE
     }
 
     private fun sinceScreenOff() =
@@ -263,6 +281,7 @@ class LockerService : AccessibilityService() {
     companion object {
         private const val TAG = "LockerService"
         private const val STANDBY_PKG = "com.xrz.standby"
+        private const val STANDBY_ACTIVITY = "com.xrz.settings.screensaver.ScreenSaveActivity"
         private const val SYSTEMUI_PKG = "com.android.systemui"
         private const val DEBOUNCE_MS = 600L
         private const val PERIODIC_MS = 5_000L

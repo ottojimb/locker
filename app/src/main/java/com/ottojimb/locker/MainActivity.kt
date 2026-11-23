@@ -34,6 +34,7 @@ class MainActivity : Activity() {
     private lateinit var serviceDot: View
     private lateinit var serviceStatus: TextView
     private lateinit var serviceButton: Button
+    private lateinit var serviceHelp: View
     private lateinit var overlayStatus: TextView
     private lateinit var preview: ImageView
     private lateinit var previewEmpty: TextView
@@ -112,16 +113,34 @@ class MainActivity : Activity() {
     }
 
     private fun serviceCard() = card().apply {
-        orientation = LinearLayout.HORIZONTAL
-        gravity = Gravity.CENTER_VERTICAL
-        serviceDot = View(this@MainActivity)
-        addView(serviceDot, LinearLayout.LayoutParams(dp(14), dp(14)).apply { marginEnd = dp(14) })
-        serviceStatus = text("", 18f, bold = true)
-        addView(serviceStatus, LinearLayout.LayoutParams(0, WRAP_CONTENT, 1f))
-        serviceButton = pill(R.string.open_accessibility, filled = false) {
-            startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
+        val row = LinearLayout(this@MainActivity).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+            serviceDot = View(this@MainActivity)
+            addView(serviceDot, LinearLayout.LayoutParams(dp(14), dp(14)).apply { marginEnd = dp(14) })
+            serviceStatus = text("", 18f, bold = true)
+            addView(serviceStatus, LinearLayout.LayoutParams(0, WRAP_CONTENT, 1f))
+            serviceButton = pill(R.string.open_accessibility, filled = false) {
+                startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
+            }
+            addView(serviceButton, LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply { marginStart = dp(12) })
         }
-        addView(serviceButton, LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply { marginStart = dp(12) })
+        addView(row)
+        // Sideloaded apps need "Allow restricted settings" before Accessibility lets them be enabled.
+        serviceHelp = LinearLayout(this@MainActivity).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(0, dp(14), 0, 0)
+            addView(text(getString(R.string.restricted_help), 15f, color = palette.muted))
+            addView(
+                pill(R.string.open_app_info, filled = false) {
+                    startActivity(
+                        Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.fromParts("package", packageName, null)),
+                    )
+                },
+                LinearLayout.LayoutParams(MATCH_PARENT, WRAP_CONTENT).apply { topMargin = dp(12) },
+            )
+        }
+        addView(serviceHelp)
     }
 
     private fun sleepCard() = card(vertical = 8).apply {
@@ -203,6 +222,7 @@ class MainActivity : Activity() {
             if (running) setColor(palette.onSurface) else setStroke(dp(2), palette.onSurface)
         }
         serviceButton.visibility = if (running) View.GONE else View.VISIBLE
+        serviceHelp.visibility = serviceButton.visibility
 
         Thread {
             val folder = OverlayStore.folder(this)

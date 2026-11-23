@@ -9,7 +9,7 @@
     <string name="enabled">Pantalla de reposo personalizada</string>
     <string name="enabled_summary">Muestra la última página con tu imagen cuando el dispositivo se duerme</string>
     <string name="invert_dark">Invertir en modo oscuro</string>
-    <string name="invert_dark_summary">Invierte los colores de la imagen con el modo oscuro o la inversión de colores</string>
+    <string name="invert_dark_summary">Invierte los colores de la imagen con la inversión de colores (modo oscuro de Bigme)</string>
     <string name="status_service_on">Servicio activo</string>
     <string name="status_service_off">Servicio apagado</string>
     <string name="open_accessibility">Activar</string>
@@ -22,4 +22,6 @@
     <string name="status_folder">%1$s · %2$d imágenes, al azar en cada bloqueo</string>
     <string name="keep_colors">Mantener colores originales</string>
     <string name="keep_colors_summary">Con la inversión de colores (modo oscuro de Bigme), la imagen conserva sus colores reales en lugar de verse rojiza o con tonos cambiados</string>
+    <string name="restricted_help">¿No puedes activarlo en Accesibilidad? Abre Información de la app, toca ⋮ y elige Permitir ajustes restringidos. Luego inténtalo de nuevo.</string>
+    <string name="open_app_info">Abrir información de la app</string>
 </resources>

@@ -10,7 +10,7 @@
     <string name="enabled">Custom sleep screen</string>
     <string name="enabled_summary">Show the last page with your image when the device sleeps</string>
     <string name="invert_dark">Invert in dark mode</string>
-    <string name="invert_dark_summary">Invert the image colors when dark mode or color inversion is on</string>
+    <string name="invert_dark_summary">Invert the image colors when color inversion (Bigme\'s dark mode) is on</string>
     <string name="status_service_on">Service running</string>
     <string name="status_service_off">Service off</string>
     <string name="open_accessibility">Enable</string>
@@ -23,4 +23,6 @@
     <string name="status_folder">%1$s · %2$d images, random each lock</string>
     <string name="keep_colors">Keep original colors</string>
     <string name="keep_colors_summary">With color inversion (Bigme\'s dark mode), the image keeps its real colors instead of looking reddish or shifted</string>
+    <string name="restricted_help">Can\'t turn it on in Accessibility? Open App info, tap ⋮ and choose Allow restricted settings, then try again.</string>
+    <string name="open_app_info">Open App info</string>
 </resources>

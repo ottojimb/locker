@@ -9,7 +9,7 @@
     <string name="enabled">Standby personalizzato</string>
     <string name="enabled_summary">Mostra l\'ultima pagina con la tua immagine quando il dispositivo va in standby</string>
     <string name="invert_dark">Inverti in modalità scura</string>
-    <string name="invert_dark_summary">Inverte i colori dell\'immagine con la modalità scura o l\'inversione dei colori</string>
+    <string name="invert_dark_summary">Inverte i colori dell\'immagine con l\'inversione dei colori (modalità scura di Bigme)</string>
     <string name="status_service_on">Servizio attivo</string>
     <string name="status_service_off">Servizio spento</string>
     <string name="open_accessibility">Attiva</string>
@@ -22,4 +22,6 @@
     <string name="status_folder">%1$s · %2$d immagini, a caso a ogni blocco</string>
     <string name="keep_colors">Mantieni i colori originali</string>
     <string name="keep_colors_summary">Con l\'inversione dei colori (modalità scura di Bigme), l\'immagine mantiene i suoi colori reali invece di apparire rossastra o alterata</string>
+    <string name="restricted_help">Non riesci ad attivarlo in Accessibilità? Apri Informazioni app, tocca ⋮ e scegli Consenti impostazioni con limitazioni, poi riprova.</string>
+    <string name="open_app_info">Apri Informazioni app</string>
 </resources>
